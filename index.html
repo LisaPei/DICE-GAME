@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    <!-- jquery CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>   <!-- popperJS CDN -->
+
+        <link rel="stylesheet" type="text/css" href="style.css">     <!-- linking css -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    </head>
+
+    <body class="backdrop">
+        <!-- How to play overlapping div -->
+        <div class="gameRules" id="gameRules">
+            <h2 class="text-center">HOW TO PLAY:</h2>
+            <hr>
+            <div class="text-center gameRulesStyling"> 
+                <br>
+                <p>Two players roll a dice in a turn-based style game.</p>
+                <p>Rolling 2-6 adds the respective number to your 'turn total'.</p>
+                <p>Rolling a 1 resets your 'turn total' and switches to the other player's turn.</p>
+                <p>After rolling at least one time, a number 2-6, you may choose to 'hold' your 'turn total'.</p>
+                <p>This will deposit your 'turn total' into your 'current points', reset your 'turn total' to zero, and switch turns.</p>
+                <p>The goal is to get to 100 'current points' before the other player does!</p>
+                <br>
+                <h2>Enjoy!</h2>
+                <br><hr>
+                <button onclick="startGame()">Start Game!</button>
+                <p>Game created by: Lisa Pei @ (https://github.com/LisaPei/DICE-GAME)</p>
+            </div>
+        </div>
+
+        <div class="gameBorderBox" id="gameStart">
+            <div class="row">
+                <!-- Player 1, left side div/half  -->
+                <div class="player1 col-6">
+                    <br><br>
+                    <div class="text-center player1Turn" id="player1">Player 1</div>
+                    <br><br>
+                    <div class="text-center holdScoreHeading" id="holdPoints1">Current Score:</div>
+                    <div class="text-center holdScore" id="player1Hold">0</div>
+                    <div class="text-center holdScoreSubtitle">points</div>
+                    <br><br>
+                    <div class="text-center" id="turnHold1">Turn Holdings:</div>
+                    <div class="text-center turnScore" id="player1Turn">0</div>
+                </div>
+
+                <!-- Player 2, right side div/half  -->
+                <div class="player2 col-6">
+                    <br><br>
+                    <div class="text-center player2Turn" id="player2">Player 2</div>
+                    <br><br>
+                    <div class="text-center holdScoreHeading" id="holdPoints2">Current Score:</div>
+                    <div class="text-center holdScore" id="player2Hold">0</div>
+                    <div class="text-center holdScoreSubtitle">points</div>
+                    <br><br>
+                    <div class="text-center" id="turnHold2">Turn Holdings:</div>
+                    <div class="text-center turnScore" id="player2Turn">0</div>
+                </div>
+
+                <!-- Middle Section Buttons -->
+                <div class="table text-center offset-5 col-2">
+                    <h2 onclick="rollDice()" class="rollDice rollDiceCaption bw" id='rollDice'>Roll</h2>
+                </div>
+                
+                <div class="table text-center offset-5 col-2">
+                    <h2 onclick="holdScore()"class="holdDice rollDiceCaption wb" id="holdScore">Hold</h2>
+                </div>
+            </div>
+
+            <!-- Dice Images, centered in game border box: display property to adjust based on javascript -->
+            <img class="diceImage diceOne" id="diceOne" src="diceImages/diceOne.png">
+            <img class="diceImage diceTwo" id="diceTwo" src="diceImages/diceTwo.png">
+            <img class="diceImage diceThree" id="diceThree" src="diceImages/diceThree.png">
+            <img class="diceImage diceFour" id="diceFour" src="diceImages/diceFour.png">
+            <img class="diceImage diceFive" id="diceFive" src="diceImages/diceFive.png">
+            <img class="diceImage diceSix" id="diceSix" src="diceImages/diceSix.png">
+
+            <!-- Winning Player Div -->
+            <div>
+                <h1 class="text-center hiddenWinner" id="hiddenWinner1">PLAYER 1 WINS!</h1>
+                <h1 class="text-center hiddenWinner" id="hiddenWinner2">PLAYER 2 WINS!</h1>
+            </div>
+        </div>
+    </body>
+
+    <script src="script.js"></script> <!-- javascript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</html>
